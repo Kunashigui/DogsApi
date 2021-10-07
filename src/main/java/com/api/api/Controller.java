@@ -1,6 +1,6 @@
 package com.api.api;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -8,6 +8,12 @@ import java.util.List;
 
 @RestController
 public class Controller {
+    
+    @GetMapping("/")
+    @ResponseStatus( HttpStatus.OK )
+    public String home(){
+        return "Dogs API";
+    }
 
     @GetMapping("/dogs")
     public List<Dog> getDogs(){
